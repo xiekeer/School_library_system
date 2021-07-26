@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/admin/bookmanagement/booklist/booklist",
+    "pages/index/index",
+    "pages/reader/home/home",
+    "pages/logs/logs",
+    "pages/reader/basic/userbasic",
+    "pages/reader/barcode/barcode",
+    "pages/reader/user/user",
+    "pages/admin/basic/basic",
+    "pages/admin/bookmanagement/home/home",
+    "pages/admin/home/home",
+    "pages/admin/readermanagement/home/home",
+    "pages/admin/libmanagement/home/home",
+
+    "pages/admin/bookmanagement/borrow/borrow",
+    "pages/admin/bookmanagement/return/return",
+    "pages/reader/list/borrowlist",
+    "pages/reader/list/reservelist",
+    "pages/admin/bookmanagement/addbook/addbook",
+    "pages/admin/readermanagement/readerlist/readerlist",
+    "pages/admin/readermanagement/addreader/addreader",
+    "pages/admin/admininfo/admininfo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0081ff",
+    "navigationBarTitleText": "纽伦堡中文学校",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

@@ -1,0 +1,14 @@
+<!--pages/admin/home/home.wxml-->
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text> 常用功能
+    </view>
+</view>
+<view class="cu-list grid col-{{gridCol}} gridBorder">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*3}}" bindtap="IconTap" data-menuurl="{{item.menuurl}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>

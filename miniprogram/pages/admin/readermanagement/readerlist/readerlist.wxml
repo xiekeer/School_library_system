@@ -1,0 +1,26 @@
+<!--pages/admin/readermanagement/readerlist/readerlist.wxml-->
+<!--pages/admin/bookmanagement/booklist/booklist.wxml-->
+<view class="weui-search-bar margin-top">
+    <view class="weui-search-bar__form">
+      <!-- 搜索框 -->
+      <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box round" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" value="{{searchtext}}" bindinput="searchinput" placeholder="请输入读者借书证，姓名或学号查询"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <view class="cu-btn bg-blue shadow margin-xs" style="border-radius: 12rpx;" bindtap="search">搜索</view>
+</view>
+<view class="none" wx:if="{{noneview}}">
+  <text>抱歉，没有相关读者</text>
+</view>
+<view class="cu-list menu " wx:if="{{searchlist}}">
+    <view class="cu-item"  wx:for="{{searcharray}}" wx:key="item">    
+      <view class="content text-black text-bold">{{item.name}}</view>        
+      <view class="content text-grey">
+        <view>图书证：{{item._id}}</view>
+        <view>学生证：{{item.studentid}}</view>
+      </view>
+      <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='方法名a'>详情</view>      
+    </view>
+</view>

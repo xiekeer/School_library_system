@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="welcome">
+    <text class="user-motto">{{welcome}}</text>
+  </view>
+
+  <view class="loginform">
+    <text class="text-red padding-xs">{{warn}}</text>
+    <form bindsubmit="login">
+      <view class="cu-form-group">
+        <view class="title">借书证ID</view>
+        <input placeholder="123456" name="id"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">密码</view>
+        <input password type="text" placeholder="123456" name="password"></input>
+      </view>
+
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" form-type="submit">登录</button>
+      </view>
+<!-- 
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="adminlogin" form-type="submit">管理员登陆</button>
+      </view>-->
+    </form>  
+    
+  </view>
+</view>

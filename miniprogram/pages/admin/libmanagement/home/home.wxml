@@ -1,0 +1,21 @@
+<!--pages/admin/libmanagement/home/home.wxml-->
+<form>
+  <view class="cu-form-group margin-top">
+		<view class="title">最大借阅时长（天）</view>
+		<input placeholder="30"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">续借最大时长（天）</view>
+		<input placeholder="30"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">最大续借次数（次）</view>
+		<input placeholder="2"></input>
+	</view>
+  
+  <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="">完成</button>
+  </view>
+
+
+</form>

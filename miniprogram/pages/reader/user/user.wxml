@@ -1,0 +1,39 @@
+<!--pages/reader/user/user.wxml-->
+<form>
+  <view class="cu-form-group margin-top">
+		<view class="title">图书证号</view>
+		<input disabled placeholder="{{readerinfo._id}}"></input>
+	</view>
+	<view class="cu-form-group">
+        <view class="title">密码修改</view>
+        <input password type="text" placeholder=""></input>
+      </view>
+			<view class="cu-form-group">
+        <view class="title">确认密码修改</view>
+        <input password type="text" placeholder=""></input>
+      </view>
+  <view class="cu-form-group margin-top">
+		<view class="title">学生姓名</view>
+		<input placeholder="{{readerinfo.name}}"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">出生日期</view>
+		<input placeholder="{{readerinfo.birthday}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">学号</view>
+		<input disabled placeholder="{{readerinfo.studentid}}"></input>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">图书证有效期至</view>
+		<input disabled placeholder="{{readerinfo.validate}}"></input>
+	</view>
+
+  <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="">完成</button>
+  </view>
+	<view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="logout">退出登录</button>
+  </view>
+</form>

@@ -1,0 +1,18 @@
+<!--pages/admin/bookmanagement/borrow/borrow.wxml-->
+<form>
+  <view class="cu-form-group margin-top">
+		<view class="title">图书证号</view>
+		<input placeholder="12345"></input>
+    <text class="cuIcon-scan"></text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">书籍编号</view>
+		<input placeholder="123456"></input>
+    <text class="cuIcon-scan"></text>
+	</view>
+
+  <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="">确定</button>
+  </view>
+</form>
+

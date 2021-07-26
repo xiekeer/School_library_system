@@ -1,0 +1,8 @@
+/* pages/admin/readermanagement/readerlist/readerlist.wxss */
+.none{
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

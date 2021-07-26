@@ -1,0 +1,72 @@
+<!--pages/admin/basic/basic.wxml-->
+<!-- <home wx:if="{{PageCur=='home'}}"></home>
+<bookmanagement wx:if="{{PageCur=='bookmanagement'}}"></bookmanagement>
+<readermanagement wx:if="{{PageCur=='readermanagement'}}"></readermanagement>
+<libmanagement wx:if="{{PageCur=='libmanagement'}}"></libmanagement>
+
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/home{{PageCur=='home'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='home'?'text-blueIcon':'text-gray'}}">首页</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="bookmanagement">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/list{{PageCur=='bookmanagement'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='bookmanagement'?'text-blueIcon':'text-gray'}}">书籍管理</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="readermanagement">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/readermanagement{{PageCur=='readermanagement'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='readermanagement'?'text-blueIcon':'text-gray'}}">读者管理</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="libmanagement">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/libmanagement{{PageCur=='libmanagement'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='libmanagement'?'text-blueIcon':'text-gray'}}">图书馆设置</view>
+  </view>
+</view> -->
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text> 图书管理
+    </view>
+</view>
+<view class="cu-list grid col-{{gridCol}} gridBorder">
+    <view class="cu-item" wx:for="{{iconListBook}}" wx:key wx:if="{{index<gridCol*3}}" bindtap="IconTap" data-menuurl="{{item.menuurl}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text> 读者管理
+    </view>
+</view>
+<view class="cu-list grid col-{{gridCol}} gridBorder">
+    <view class="cu-item" wx:for="{{iconListUser}}" wx:key wx:if="{{index<gridCol*3}}" bindtap="IconTap" data-menuurl="{{item.menuurl}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+</view>
+
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text> 规则设置
+    </view>
+</view>
+<view class="cu-list grid col-{{gridCol}} gridBorder">
+    <view class="cu-item" wx:for="{{iconListLib}}" wx:key wx:if="{{index<gridCol*3}}" bindtap="IconTap" data-menuurl="{{item.menuurl}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+</view>

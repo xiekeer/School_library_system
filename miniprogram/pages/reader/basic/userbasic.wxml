@@ -1,0 +1,40 @@
+<!--pages/reader/basic/userbasic.wxml-->
+<!-- <home wx:if="{{PageCur=='home'}}"></home>
+<list wx:if="{{PageCur=='list'}}"></list>
+<barcode wx:if="{{PageCur=='barcode'}}"></barcode>
+<user wx:if="{{PageCur=='user'}}"></user>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/home{{PageCur=='home'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='home'?'text-blueIcon':'text-gray'}}">首页</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="list">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/list{{PageCur=='list'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='list'?'text-blueIcon':'text-gray'}}">已借</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="barcode">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/barcode{{PageCur=='barcode'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='barcode'?'text-blueIcon':'text-gray'}}">借书</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="user">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/user{{PageCur=='user'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='user'?'text-blueIcon':'text-gray'}}">我的</view>
+  </view>
+</view> -->
+
+<view class="cu-list grid col-{{gridCol}} gridBorder margin-top">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*3}}" bindtap="IconTap" data-menuurl="{{item.menuurl}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+
+      </view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>

@@ -1,0 +1,31 @@
+<!--pages/admin/adminInfo/admininfo.wxml-->
+<form>
+  <view class="cu-form-group margin-top">
+		<view class="title">管理员用户号</view>
+		<input disabled placeholder ="{{admininfo._id}}"></input>
+	</view>
+	<view class="cu-form-group">
+        <view class="title">密码修改</view>
+        <input password type="text" placeholder="请输入新密码"></input>
+      </view>
+			<view class="cu-form-group">
+        <view class="title">确认密码修改</view>
+        <input password type="text" placeholder="请再次输入新密码"></input>
+      </view>
+  <view class="cu-form-group margin-top">
+		<view class="title">管理员姓名</view>
+		<input placeholder="{{admininfo.name}}"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">电子邮箱</view>
+		<input placeholder="{{admininfo.email}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">电话号码</view>
+		<input disabled placeholder="{{admininfo.phone}}"></input>
+	</view>
+
+  <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="">完成</button>
+  </view>
+</form>
