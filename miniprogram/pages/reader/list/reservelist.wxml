@@ -1,9 +1,9 @@
 <!--pages/reader/list/reservelist.wxml-->
   <view class="cu-list menu margin-top">
-    <view class="cu-item" wx:for="{{reservelist[0].reserveinfo}}" wx:key = "item">    
-      <view class="text-black text-lg text-bold margin-sm">{{item.bookname}}</view>    
+    <view class="cu-item" wx:for="{{reservelist}}" wx:key = "item">    
+      <view class="text-black text-lg text-bold margin-sm">{{item.title}}</view>    
       <view>   
-      <view class="text-grey">编号：{{item.bookid}}</view>
+      <view class="text-grey">编号：{{item._id}}</view>
     </view> 
       <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" >取消</view>      
     </view>

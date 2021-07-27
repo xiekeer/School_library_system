@@ -14,12 +14,14 @@
       </view>
   <view class="cu-form-group margin-top">
 		<view class="title">学生姓名</view>
-		<input placeholder="{{readerinfo.name}}"></input>
+		<input value="{{readerinfo.name}}"></input>
 	</view>
   <view class="cu-form-group">
 		<view class="title">出生日期</view>
-		<input placeholder="{{readerinfo.birthday}}"></input>
-	</view>
+		<picker mode="date" value="{{birthday}}"  start="2000-01-01" bindchange="bindBirthdayChange" name='birthday'>
+			{{birthday}}
+		</picker>
+  </view>
 	<view class="cu-form-group">
 		<view class="title">学号</view>
 		<input disabled placeholder="{{readerinfo.studentid}}"></input>

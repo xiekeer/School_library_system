@@ -1,4 +1,6 @@
 // pages/reader/list/borrowlist.js
+const db = wx.cloud.database()
+const bookdb= db.collection("book")
 Page({
 
   /**
@@ -12,11 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({
-        borrowlist: borrowlist_data.borrowlist_data
-      })
+    let id= getApp().globalData.loginid
+    bookdb.where({borrowedby:id}).get({
+      success: res =>{
+        this.setData({
+          borrowlist:res.data
+        })
+      }
+    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

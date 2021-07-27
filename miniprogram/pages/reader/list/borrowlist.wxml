@@ -1,10 +1,10 @@
 <!--pages/reader/list/borrowlist.wxml-->
   <view class="cu-list menu margin-top">
-    <view class="cu-item" wx:for="{{borrowlist[0].borrowinfo}}" wx:key = "item">    
-      <view class="text-black text-lg text-bold margin-sm">{{item.bookname}}</view>    
+    <view class="cu-item" wx:for="{{borrowlist}}" wx:key = "item">    
+      <view class="text-black text-lg text-bold margin-sm">{{item.title}}</view>    
       <view>   
-        <view class="text-grey">编号：{{item.bookid}}</view>
-        <view class="">到期日期: {{item.borrowed_date.end_date}} </view>
+        <view class="text-grey">编号：{{item._id}}</view>
+        <view class="">到期日期: {{item.borrowedend}} </view>
       </view> 
       <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" >续借</view>      
     </view>

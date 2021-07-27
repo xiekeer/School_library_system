@@ -70,6 +70,19 @@ Page({
       searchtext: e.detail.value
     })
   },
+
+  //点击详情时跳转到详情页面
+showReaderDetail:function(event){
+  //返回下标
+  let index = event.currentTarget.dataset.index
+  //将实体转为json字符串
+  let queryBean = JSON.stringify(this.data.searcharray[index])
+ //页面跳转并传递字符串
+  wx.navigateTo({
+    url: '/pages/admin/readermanagement/readerlist/readerdetail?queryBean=' +queryBean,
+  })
+
+},
   /**
    * 生命周期函数--监听页面加载
    */

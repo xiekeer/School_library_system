@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function () {
     this.setData({
-      code: getApp().globalData.id
+      code: getApp().globalData.loginid
     })
   },
 

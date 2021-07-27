@@ -1,5 +1,6 @@
 // pages/reader/list/reservelist.js
-
+const db = wx.cloud.database()
+const bookdb= db.collection("book")
 Page({
 
   /**
@@ -13,8 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      reservelist: reservelist_data.reservelist_data
+    let id= getApp().globalData.loginid
+    bookdb.where({reservedby:id}).get({
+      success: res =>{
+        this.setData({
+          reservelist:res.data
+        })
+      }
     })
   },
 

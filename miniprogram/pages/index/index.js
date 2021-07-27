@@ -41,7 +41,7 @@ Page({
         else{
           //在reader表中查询
           readerdb.where({_id:id} && {password:password}).get().then(res => {
-            console.log(res.data)
+            //console.log(res.data)
             //若结果存在
             if(res.data.length>0){
               //重置警告信息

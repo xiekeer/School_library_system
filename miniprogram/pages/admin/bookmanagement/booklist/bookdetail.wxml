@@ -1,0 +1,40 @@
+<!--miniprogram/pages/admin/bookmanagement/booklist/bookdetail.wxml-->
+<!--pages/admin/adminInfo/admininfo.wxml-->
+<form>
+  <view class="cu-form-group margin-top">
+		<view class="title">图书编号</view>
+		<input disabled value ="{{bookinfo._id}}"></input>
+	</view>
+	<view class="cu-form-group">
+    <view class="title">图书名称</view>
+    <input value ="{{bookinfo.title}}"></input>
+  </view>
+	<view class="cu-form-group">
+    <view class="title">ISBN</view>
+    <input value ="{{bookinfo.isbn}}"></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">借给</view>
+		<input value="{{bookinfo.borrowedby}}"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">预约给</view>
+		<input value="{{bookinfo.reservedby}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">出借日期</view>
+		<input value="{{bookinfo.borrowedbegin}}"></input>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">到期日期</view>
+		<input value="{{bookinfo.borrowedend}}"></input>
+	</view>
+
+  <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="">完成</button>
+  </view>
+  <view class="padding flex flex-direction">
+        <button class="cu-btn bg-blue lg" bindtap="">删除</button>
+  </view>
+</form>
+

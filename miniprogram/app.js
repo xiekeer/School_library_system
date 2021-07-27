@@ -17,10 +17,10 @@ App({
 
     this.globalData = { }
   },
+  
   globalData: {
     loginid:'',
-    ADMINDB:'admin',
-    READERDB:'reader',
-    BOOKDB:'book'
+    
   }
+
 })

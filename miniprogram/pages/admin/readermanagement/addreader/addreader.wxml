@@ -1,28 +1,33 @@
 <!--pages/admin/readermanagement/addreader/addreader.wxml-->
-<form>
+<form bindsubmit="addReader">
   <view class="cu-form-group margin-top">
 		<view class="title">图书证号</view>
-		<input placeholder="图书证号"></input>
-    <text class="cuIcon-scan"></text>
+		<input value='{{readerid}}' name='readerid' placeholder="必填"></input>
+    <text class="cuIcon-scan" bindtap='scanCodeReader'></text>
 	</view>
   <view class="cu-form-group">
 		<view class="title">学生姓名</view>
-		<input placeholder="学生姓名"></input>
+		<input placeholder="学生姓名" name='readername'></input>
 	</view>
   <view class="cu-form-group">
 		<view class="title">学号</view>
-		<input placeholder="学号"></input>
+		<input name='studentid' placeholder="必填"></input>
 	</view>
-  <view class="cu-form-group">
+
+	<view class="cu-form-group">
 		<view class="title">出生日期</view>
-		<input placeholder="2021-01-01"></input>
-	</view>
-  <view class="cu-form-group">
-		<view class="title">有效期</view>
-		<input placeholder="2021-01-01"></input>
+		<picker mode="date" value="{{birthday}}"  start="2000-01-01" bindchange="bindBirthdayChange" name='birthday'>
+			{{birthday}}
+		</picker>
+  </view>
+	<view class="cu-form-group">
+			<view class="title">有效期</view>
+			<picker mode="date" value="{{validate}}"  start="2022-01-01" bindchange="bindValidateChange" name='validate'>
+				{{validate}}
+			</picker>
 	</view>
 
   <view class="padding flex flex-direction">
-        <button class="cu-btn bg-blue lg" bindtap="">确定</button>
+        <button class="cu-btn bg-blue lg" form-type="submit">确定</button>
   </view>
 </form>

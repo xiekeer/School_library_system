@@ -10,7 +10,7 @@
             <view class="cu-btn bg-blue shadow margin-xs" style="border-radius: 12rpx;" bindtap='search'>搜索</view>
 </view>
 <view class="none" wx:if="{{noneview}}">
-  <text>抱歉，没有相关读者</text>
+  <text>抱歉，没有相关书籍</text>
 </view>
 <view class="cu-list menu " wx:if="{{searchlist}}">
     <view class="cu-item" wx:for="{{searcharray}}" wx:key="item">    

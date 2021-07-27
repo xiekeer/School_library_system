@@ -1,21 +1,21 @@
 <!--pages/admin/bookmanagement/addbook/addbook.wxml-->
-<form>
+<form bindsubmit="addBook">
   <view class="cu-form-group margin-top">
 		<view class="title">书籍编号</view>
-		<input placeholder="书籍编号"></input>
-    <text class="cuIcon-scan"></text>
+		<input value='{{bookid}}' name='bookid'></input>
+    <text class="cuIcon-scan" bindtap='scanCodeBookId'></text>
 	</view>
   <view class="cu-form-group">
 		<view class="title">书籍ISBN</view>
-		<input placeholder="书籍ISBN"></input>
-    <text class="cuIcon-scan"></text>
+		<input value='{{bookisbn}}' name='bookisbn'></input>
+    <text class="cuIcon-scan" bindtap='scanCodeBookIsbn'></text>
 	</view>
   <view class="cu-form-group">
 		<view class="title">书籍名称</view>
-		<input placeholder="请录入书名"></input>
+		<input placeholder="请录入书名" name='booktitle'></input>
 	</view>
 
   <view class="padding flex flex-direction">
-        <button class="cu-btn bg-blue lg" bindtap="">确定</button>
+        <button class="cu-btn bg-blue lg"  form-type="submit">确定</button>
   </view>
 </form>

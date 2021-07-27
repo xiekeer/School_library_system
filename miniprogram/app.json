@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/admin/bookmanagement/booklist/booklist",
+    
     "pages/index/index",
     "pages/reader/home/home",
     "pages/logs/logs",
@@ -12,7 +12,7 @@
     "pages/admin/home/home",
     "pages/admin/readermanagement/home/home",
     "pages/admin/libmanagement/home/home",
-
+    "pages/admin/bookmanagement/booklist/booklist",
     "pages/admin/bookmanagement/borrow/borrow",
     "pages/admin/bookmanagement/return/return",
     "pages/reader/list/borrowlist",
@@ -20,7 +20,9 @@
     "pages/admin/bookmanagement/addbook/addbook",
     "pages/admin/readermanagement/readerlist/readerlist",
     "pages/admin/readermanagement/addreader/addreader",
-    "pages/admin/admininfo/admininfo"
+    "pages/admin/admininfo/admininfo",
+    "pages/admin/bookmanagement/booklist/bookdetail",
+    "pages/admin/readermanagement/readerlist/readerdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

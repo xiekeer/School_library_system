@@ -1,13 +1,80 @@
 // pages/admin/bookmanagement/addbook/addbook.js
+const db = wx.cloud.database()
+const bookdb= db.collection("book")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    bookid: "",
+    bookisbn: "",
+    booktitle: "",
   },
 
+  //扫描书籍编号
+  scanCodeBookId: function() {
+    var that = this;
+    wx.scanCode({ //扫描API
+      success(res) { //扫描成功
+        console.log(res) //输出回调信息
+        that.setData({
+          bookid: res.result
+        });
+      }
+    })
+  },
+ 
+  //扫描书籍ISBN
+  scanCodeBookIsbn: function() {
+    var that = this;
+    wx.scanCode({ //扫描API
+      success(res) { //扫描成功
+        console.log(res) //输出回调信息
+        that.setData({
+          bookisbn: res.result
+        });
+      }
+    })
+  },
+
+  //添加图书
+  addBook: function(e) {
+
+    //读取表单数据
+    let {bookid,bookisbn,booktitle}=e.detail.value
+    //内容输入不全提示
+    if (!bookid||!bookisbn||!booktitle){
+      wx.showToast({
+          title: '请完整填写内容',
+        })
+      return;
+    }else{
+      bookdb.add({
+        data:{
+          _id:bookid,
+          title:booktitle,
+          isbn:bookisbn,
+          borrowedby:"",
+          reservedby:"",
+          borrowedbegin:"",
+          borrowedend:""
+        },
+        success:res =>{
+          wx.showToast({
+            title: '新增记录成功',
+          })
+        },
+        fail:err=>{
+          wx.showToast({
+            icon: 'none',
+            title: '新增记录失败'
+          })
+          console.error(' 失败：', err)
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

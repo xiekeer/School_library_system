@@ -1,29 +1,11 @@
-// pages/reader/user/user.js
-const db = wx.cloud.database()
-const readerdb= db.collection("reader")
+// miniprogram/pages/admin/readermanagement/readerlist/readerdetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      readerinfo:null,
-      birthday:"",
-  },
-
-  //出生日期选择器
-  bindBirthdayChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      birthday: e.detail.value
-    })
-  },
-  //退出登录
-  logout:function (){
-    getApp().globalData.loginid = '';
-    wx.reLaunch({   
-      url: '/pages/index/index'
-    })
+    readerinfo:null,
 
   },
 
@@ -31,17 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取登录id（即借书卡号）
-    let readerid = getApp().globalData.loginid
-    //从数据库获取用户信息保存到readerinfo中
-    readerdb.doc(readerid).get().then(res => {
-       this.setData({
-        readerinfo:res.data,
-        birthday: res.data.birthday,
-        
-       })
-     }
-    )
+
+    //将json字符串转换为实体
+    let queryBean = JSON.parse(options.queryBean);
+    this.setData({
+      readerinfo: queryBean
+    })
+    console.log(this.data.readerinfo)
+
   },
 
   /**

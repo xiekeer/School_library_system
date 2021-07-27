@@ -9,11 +9,11 @@
     <form bindsubmit="login">
       <view class="cu-form-group">
         <view class="title">借书证ID</view>
-        <input placeholder="123456" name="id"></input>
+        <input placeholder="" name="id"></input>
       </view>
       <view class="cu-form-group">
         <view class="title">密码</view>
-        <input password type="text" placeholder="123456" name="password"></input>
+        <input password type="text" placeholder="" name="password"></input>
       </view>
 
       <view class="padding flex flex-direction">

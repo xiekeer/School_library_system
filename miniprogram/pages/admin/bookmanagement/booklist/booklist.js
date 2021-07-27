@@ -1,6 +1,6 @@
 // pages/admin/bookmanagement/booklist/booklist.js
 const db = wx.cloud.database()
-const readerdb= db.collection("book")
+const bookdb= db.collection("book")
 Page({
 
   /**
@@ -17,7 +17,7 @@ search: function(e) {
   console.log('searchtext:' +searchtext)
   if (searchtext != "") {
     //模糊查询
-    readerdb.where(db.command.or([
+    bookdb.where(db.command.or([
     {
       _id: db.RegExp({
         regexp: '.*'+searchtext,
@@ -68,6 +68,18 @@ searchinput: function(e) {
   this.setData({
     searchtext: e.detail.value
   })
+},
+//点击详情时跳转到详情页面
+showBookDetail:function(event){
+  //返回下标
+  let index = event.currentTarget.dataset.index
+  //将实体转为json字符串
+  let queryBean = JSON.stringify(this.data.searcharray[index])
+ //页面跳转并传递字符串
+  wx.navigateTo({
+    url: '/pages/admin/bookmanagement/booklist/bookdetail?queryBean=' +queryBean,
+  })
+
 },
   /**
    * 生命周期函数--监听页面加载

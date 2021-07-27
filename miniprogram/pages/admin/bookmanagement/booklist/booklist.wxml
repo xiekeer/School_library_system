@@ -11,16 +11,16 @@
             <view class="cu-btn bg-blue shadow margin-xs" style="border-radius: 12rpx;" bindtap='search'>搜索</view>
 </view>
 <view class="none" wx:if="{{noneview}}">
-  <text>抱歉，没有相关读者</text>
+  <text>抱歉，没有相关书籍</text>
 </view>
 <view class="cu-list menu " wx:if="{{searchlist}}">
-    <view class="cu-item" wx:for="{{searcharray}}" wx:key="item">    
+    <view class="cu-item" wx:for="{{searcharray}}" wx:key="item" wx:for-index="index">    
       <view class="content text-black text-bold">{{item.title}}</view>        
       <view class="content text-grey">图书编号：{{item._id}}</view>
       <view class="content text-grey margin-m">
         <view >{{item.borrowedby?'已借出':'未借出'}}</view>
         <view >{{item.reservedby?'已预约':'未预约'}}</view>
       </view>
-      <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='方法名a'>详情</view>      
+      <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='showBookDetail' data-index="{{index}}">详情</view>      
     </view>
 </view>
