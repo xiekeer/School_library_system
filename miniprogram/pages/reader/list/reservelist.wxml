@@ -1,10 +1,11 @@
 <!--pages/reader/list/reservelist.wxml-->
   <view class="cu-list menu margin-top">
-    <view class="cu-item" wx:for="{{reservelist}}" wx:key = "item">    
+    <view class="cu-item" wx:for="{{reservelist}}" wx:key = "item" wx:for-index="index">    
       <view class="text-black text-lg text-bold margin-sm">{{item.title}}</view>    
       <view>   
       <view class="text-grey">编号：{{item._id}}</view>
     </view> 
-      <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" >取消</view>      
+      <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='cancleReserveBook' 
+        data-bookid='{{item._id}}' data-index= '{{index}}'>取消</view>      
     </view>
 </view>

@@ -1,7 +1,8 @@
 // pages/admin/bookmanagement/borrow/borrow.js
 const db = wx.cloud.database()
 const bookdb= db.collection("book")
-let util = require('../../../../utils/util.js');
+const readerdb= db.collection("reader")
+const util = require('../../../../utils/util.js')
 Page({
 
   /**
@@ -11,7 +12,9 @@ Page({
     readerid: "",
     bookid: "",
     borrowedbegin: "",
-    borrowedend: ""
+    borrowedend: "",
+    maxborrowday: 30,
+
 
   },
   //扫描读者图书证
@@ -44,11 +47,14 @@ Page({
     let {bookid,readerid}=e.detail.value
     // 调用函数时，传入new Date()参数，返回值是日期和时间
     let date = new Date()
+    //返回借阅开始时间
     let borrowedbegin = util.formatDate(date)
-    date.setDate(date.getDate() + 30);
+    //计算借阅结束时间
+    date.setDate(date.getDate() + this.data.maxborrowday);
     let borrowedend = util.formatDate(date)
-    console.log(borrowedbegin)
-    console.log(borrowedend)
+    //打印检查时间
+    //console.log(borrowedbegin)
+    //console.log(borrowedend)
     //内容输入不全提示
     if (!bookid||!readerid){
       wx.showToast({
@@ -56,27 +62,54 @@ Page({
           title: '请输入图书证号和书籍号码',
         })
       return;
-    }else{
-      bookdb.doc(bookid).update({
-        data: {
-          borrowedby:readerid,
-          borrowedbegin:borrowedbegin,
-          borrowedend:borrowedend,
+    }else{      
+      readerdb.doc(readerid).get({
+        //若读者存在
+        success: res=>{        
+            //更新书籍：借阅人，借阅开始时间，借阅结束时间，续借次数重置
+            bookdb.doc(bookid).update({
+              data: {
+                borrowedby:readerid,
+                borrowedbegin:borrowedbegin,
+                borrowedend:borrowedend,
+                renewtime:0,
+              },
+              success: res => {
+                console.log(res.stats.updated)
+                //若图书状态更新
+                if(res.stats.updated==1){
+                  console.log('书籍借阅成功')
+                  wx.showToast({
+                    title: '书籍借阅成功',
+                  })
+                }else{
+                  //若图书状态没有更新
+                  wx.showToast({
+                    icon: 'none',
+                    title: '书籍不存在或已借阅',
+                  })
+                }               
+              },
+              fail: err => {
+                //若图书更新失败
+                wx.showToast({
+                  icon: 'none',
+                  title: '书籍借阅失败',
+                })
+                console.error('[数据库] [更新记录] 失败：', err)
+              }
+            })            
         },
-        success: res => {
-          wx.showToast({
-            title: '书籍归还成功',
-          })
-        },
-        fail: err => {
+        //若读者不存在，提示
+        fail:err=>{
+          console.log('读者不存在')
           wx.showToast({
             icon: 'none',
-            title: '书籍归还失败',
+            title: '读者不存在',
           })
-          console.error('[数据库] [更新记录] 失败：', err)
         }
-      })
-    }
+      })     
+    } 
   },
 
   /**

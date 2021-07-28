@@ -11,7 +11,7 @@
   </view>
     <view class="barcode">
       <view class="barnum">{{code}}</view>
-      <canvas canvas-id="barcode" />
+      <canvas canvas-id="barcode"></canvas>
     </view>
   </view>
 </view>

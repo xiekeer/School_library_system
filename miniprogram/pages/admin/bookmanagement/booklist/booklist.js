@@ -38,7 +38,6 @@ search: function(e) {
     },
     ])).get({
       success: res =>{
-        console.log(res.data)
         if (res.data.length >0){  
           this.setData({
             noneview: false, //隐藏未找到提示

@@ -15,26 +15,30 @@
   </view>
   <view class="cu-form-group">
 		<view class="title">借给</view>
-		<input value="{{bookinfo.borrowedby}}"></input>
+		<input disabled value="{{bookinfo.borrowedby}}"></input>
 	</view>
   <view class="cu-form-group">
 		<view class="title">预约给</view>
-		<input value="{{bookinfo.reservedby}}"></input>
+		<input disabled value="{{bookinfo.reservedby}}"></input>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">出借日期</view>
-		<input value="{{bookinfo.borrowedbegin}}"></input>
+		<input disabled value="{{bookinfo.borrowedbegin}}"></input>
 	</view>
   <view class="cu-form-group">
 		<view class="title">到期日期</view>
-		<input value="{{bookinfo.borrowedend}}"></input>
+		<input disabled value="{{bookinfo.borrowedend}}"></input>
 	</view>
+	<view class="cu-form-group">
+		<view class="title">已延期次数</view>
+		<input disabled value="{{bookinfo.renewtime}}"></input>
+	</view>>
 
   <view class="padding flex flex-direction">
-        <button class="cu-btn bg-blue lg" bindtap="">完成</button>
+        <button class="cu-btn bg-blue lg" bindtap="">更新</button>
   </view>
-  <view class="padding flex flex-direction">
+<!--   <view class="padding flex flex-direction">
         <button class="cu-btn bg-blue lg" bindtap="">删除</button>
-  </view>
+  </view> -->
 </form>
 

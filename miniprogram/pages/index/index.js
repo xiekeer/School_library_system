@@ -23,10 +23,10 @@ Page({
       })
       return;
     } else{
-      admindb.where({_id:id} && {password:password}).get().then(res => {
-        console.log(res.data)
+      admindb.where(db.command.and([{_id:id} ,{password:password}])).get().then(res => {
         //若结果存在
         if(res.data.length>0){
+          //console.log('login as admin')
           //重置警告信息
           this.setData({
             warn:""
@@ -40,10 +40,11 @@ Page({
         }//若在admin表中未找到结果
         else{
           //在reader表中查询
-          readerdb.where({_id:id} && {password:password}).get().then(res => {
-            //console.log(res.data)
+          readerdb.where(db.command.and([{_id:id} ,{password:password}])).get().then(res => {
+            //console.log(res.data)         
             //若结果存在
             if(res.data.length>0){
+              console.log('login as reader')
               //重置警告信息
               this.setData({
                 warn:"",
@@ -69,11 +70,6 @@ Page({
   
   },
   
-  adminlogin(){
-    wx.navigateTo({
-      url: '/pages/admin/basic/basic'
-    })
-  },
   onLoad() {
 
   }

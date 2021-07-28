@@ -23,6 +23,38 @@ Page({
       }
     })
   },
+  // 取消预约书籍功能
+  cancleReserveBook:function(event){
+    let that=this
+    //返回当前书籍id
+    let bookid= event.currentTarget.dataset.bookid
+    let index = event.currentTarget.dataset.index  
+    //更新图书预约
+    bookdb.doc(bookid).update({
+      data: {
+        reservedby:'',
+      },
+      success: res => {
+        //若图书预约取消成功
+        wx.showToast({
+          title: '图书预约已取消',
+        })
+        let updatedlist = that.data.reservelist
+        updatedlist.splice(index,1)
+        that.setData({
+          reservelist:updatedlist
+        })
+      },
+      fail: err => {
+        //图书预约取消失败
+        wx.showToast({
+          icon: 'none',
+          title: '图书预约取消失败',
+        })
+        console.error('[数据库] [更新记录] 失败：', err)
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

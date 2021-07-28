@@ -24,7 +24,7 @@
   <view class="padding flex flex-direction">
         <button class="cu-btn bg-blue lg" bindtap="">完成</button>
   </view>
-  <view class="padding flex flex-direction">
+<!--   <view class="padding flex flex-direction">
         <button class="cu-btn bg-blue lg" bindtap="">删除</button>
-  </view>
+  </view> -->
 </form>

@@ -1,5 +1,5 @@
 // pages/reader/barcode/barcode.js
-
+const util = require('../../../utils/util.js')
 Page({
 
   /**
@@ -13,9 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    let code=getApp().globalData.loginid
     this.setData({
-      code: getApp().globalData.loginid
+      code:code,
     })
+    util.toBarcode('barcode', code, 300, 80);
   },
 
   /**

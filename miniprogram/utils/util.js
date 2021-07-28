@@ -32,5 +32,5 @@ function toBarcode (canvasId, code, width, height) {
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDate,
-  toBarcode
+  toBarcode:toBarcode,
 }

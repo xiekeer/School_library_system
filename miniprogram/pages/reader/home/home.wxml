@@ -13,12 +13,18 @@
   <text>抱歉，没有相关书籍</text>
 </view>
 <view class="cu-list menu " wx:if="{{searchlist}}">
-    <view class="cu-item" wx:for="{{searcharray}}" wx:key="item">    
+    <view class="cu-item" wx:for="{{searcharray}}" wx:key="item" wx:for-index="index">    
       <view class="content text-black text-bold">{{item.title}}</view>        
       <view class="content text-grey">
-        <view>图书编号：{{item._id}}</view>
+        <view names="bookid">图书编号：{{item._id}}</view>
         <view>ISBN：{{item.isbn}}</view>
       </view>
-      <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='方法名a'>预约</view>      
+        <view wx:if="{{item.reservedby==''}}" class="cu-btn bg-blue shadow" style="border-radius: 12rpx;"  bindtap='reserveBook' 
+        data-bookid='{{item._id}}' data-index= '{{index}}' >
+          预约
+        </view>    
+        <view wx:else class="cu-btn bg-grey shadow" style="border-radius: 12rpx;"  >
+          预约
+        </view>    
     </view>
 </view>

@@ -1,6 +1,6 @@
 // pages/reader/home/home.js
 const db = wx.cloud.database()
-const readerdb= db.collection("book")
+const bookdb= db.collection("book")
 Page({
 
   /**
@@ -18,7 +18,7 @@ Page({
     console.log('searchtext:' +searchtext)
     if (searchtext != "") {
       //模糊查询
-      readerdb.where(db.command.or([
+      bookdb.where(db.command.or([
       {
         _id: db.RegExp({
           regexp: '.*'+searchtext,
@@ -39,7 +39,6 @@ Page({
       },
       ])).get({
         success: res =>{
-          console.log(res.data)
           if (res.data.length >0){  
             this.setData({
               noneview: false, //隐藏未找到提示
@@ -70,6 +69,41 @@ Page({
       searchtext: e.detail.value
     })
   },
+  // 预定书籍功能
+  reserveBook:function(event){
+    let that=this
+    //返回当前书籍id和读者id
+    let bookid= event.currentTarget.dataset.bookid
+    let readerid= getApp().globalData.loginid
+    let index = event.currentTarget.dataset.index
+    //更新图书预约人
+    bookdb.doc(bookid).update({
+      data: {
+        reservedby:readerid,
+      },
+      success: res => {
+        //若图书预约成功
+        wx.showToast({
+          title: '图书预约成功',
+        })
+        var ss ='searcharray[' + index +'].reservedby' 
+        console.log(ss)
+        that.setData({
+          [ss]:readerid,
+        })
+        console.log(searcharray[index].reservedby)
+      },
+      fail: err => {
+        //若图书预约失败
+        wx.showToast({
+          icon: 'none',
+          title: '图书预约失败',
+        })
+        console.error('[数据库] [更新记录] 失败：', err)
+      }
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */

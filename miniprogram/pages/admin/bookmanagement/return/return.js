@@ -53,6 +53,7 @@ Page({
           borrowedby:"",
           borrowedbegin:"",
           borrowedend:"",
+          renewtime:0,
         },
         success: res => {
           wx.showToast({

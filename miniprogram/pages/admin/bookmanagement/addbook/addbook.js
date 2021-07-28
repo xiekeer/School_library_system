@@ -58,7 +58,8 @@ Page({
           borrowedby:"",
           reservedby:"",
           borrowedbegin:"",
-          borrowedend:""
+          borrowedend:"",
+          renewtime:0,
         },
         success:res =>{
           wx.showToast({

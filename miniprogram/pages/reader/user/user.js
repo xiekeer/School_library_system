@@ -2,7 +2,6 @@
 const db = wx.cloud.database()
 const readerdb= db.collection("reader")
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -24,6 +23,75 @@ Page({
     wx.reLaunch({   
       url: '/pages/index/index'
     })
+  },
+ //提交更改
+  modifyReader:function(e){
+    //读取表单数据
+    let {readerid,password,passwordconfirm,name,birthday,studentid}=e.detail.value
+    
+    if(password==passwordconfirm ){
+      //有新密码且密码不为空
+      if(password!=''){
+        //更新用户数据带密码
+        readerdb.doc(readerid).update({
+          data: {
+            password:password,
+            name:name,
+            birthday:birthday,
+            studentid:studentid          
+          },success: res => {
+            //若更新用户数据成功
+            wx.showToast({
+              title: '更新成功',
+            })
+            /* wx.navigateBack({
+              delta: 1
+            })     */    
+          },
+          fail: err => {
+            //更新用户数据失败
+            wx.showToast({
+              icon: 'none',
+              title: '更新失败',
+            })
+            console.error('[数据库] [更新记录] 失败：', err)
+          },
+          
+        })
+      }else{
+        //更新用户数据无密码
+        readerdb.doc(readerid).update({
+          data: {
+            name:name,
+            birthday:birthday,
+            studentid:studentid          
+          },success: res => {
+            //若更新用户数据成功
+            wx.showToast({
+              title: '更新成功',
+            })
+            /* wx.navigateBack({
+              delta: 1
+            })       */  
+          },
+          fail: err => {
+            //更新用户数据失败
+            wx.showToast({
+              icon: 'none',
+              title: '更新失败',
+            })
+            console.error('[数据库] [更新记录] 失败：', err)
+          },
+          
+        })
+      }      
+    }else{
+      wx.showToast({
+        icon:'none',
+        title: '密码和验证密码不同',
+      })
+    } 
+
 
   },
 
