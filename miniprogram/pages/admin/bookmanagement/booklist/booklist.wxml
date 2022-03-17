@@ -4,7 +4,7 @@
       <!-- 搜索框 -->
       <view class="weui-search-bar__box">
                     <icon class="weui-icon-search_in-box round" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" value="{{searchtext}}" bindinput="searchinput" placeholder="请输入书名，ISBN或图书馆编号"/>
+                    <input type="text" class="search-form_input" value="{{searchtext}}" bindinput="searchinput" placeholder="请输入书名，ISBN或图书馆编号"/>
                 </view>
             </view>
             <!-- 搜索按钮,调用搜索查询方法 -->

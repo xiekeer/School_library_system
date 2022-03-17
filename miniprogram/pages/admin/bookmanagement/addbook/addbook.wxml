@@ -14,6 +14,10 @@
 		<view class="title">书籍名称</view>
 		<input placeholder="请录入书名" name='booktitle'></input>
 	</view>
+	<view class="cu-form-group">
+		<view class="title">备注</view>
+		<input placeholder="请录入书籍位置等信息" name='booknote'></input>
+	</view>
 
   <view class="padding flex flex-direction">
         <button class="cu-btn bg-blue lg"  form-type="submit">确定</button>

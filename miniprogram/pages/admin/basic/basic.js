@@ -22,16 +22,16 @@ Page({
       name: '扫码录书',
       menuurl: '/pages/admin/bookmanagement/addbook/addbook'
     }, {
-      icon: 'text',
+      icon: 'search',
       color: 'blue',
-      name: '图书列表',
+      name: '查找书籍',
       menuurl: '/pages/admin/bookmanagement/booklist/booklist'
     }
   ],
   iconListUser: [{
-    icon: 'text',
+    icon: 'search',
     color: 'blue',
-    name: '读者列表',
+    name: '查找读者',
     menuurl: '/pages/admin/readermanagement/readerlist/readerlist'
   }, {
     icon: 'friendadd',
@@ -40,7 +40,7 @@ Page({
     menuurl: '/pages/admin/readermanagement/addreader/addreader'
   }
 ],
-iconListLib: [{
+/* iconListLib: [{
   icon: 'settings',
   color: 'blue',
   name: '图书馆规则',
@@ -51,7 +51,7 @@ iconListLib: [{
   name: '管理员信息',
   menuurl: '/pages/admin/admininfo/admininfo'
 }
-],
+], */
     gridCol:3
   },
   NavChange(e) {
@@ -69,6 +69,13 @@ iconListLib: [{
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }
 
   },
 

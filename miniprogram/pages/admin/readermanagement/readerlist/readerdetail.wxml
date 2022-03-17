@@ -1,29 +1,30 @@
 <!--miniprogram/pages/admin/readermanagement/readerlist/readerdetail.wxml-->
 <form>
   <view class="cu-form-group margin-top">
-		<view class="title">借书证号</view>
+		<view class="title">学生证号</view>
 		<input disabled value ="{{readerinfo._id}}"></input>
 	</view>
 	<view class="cu-form-group">
     <view class="title">读者姓名</view>
-    <input value ="{{readerinfo.name}}"></input>
+    <input disabled value ="{{readerinfo.name}}"></input>
   </view>
 	<view class="cu-form-group">
     <view class="title">密码</view>
-    <input value ="{{readerinfo.password}}"></input>
+    <input disabled value ="{{readerinfo.password}}"></input>
   </view>
   <view class="cu-form-group">
 		<view class="title">出生日期</view>
-		<input value="{{readerinfo.birthday}}"></input>
+		<input disabled value="{{readerinfo.birthday}}"></input>
 	</view>
   <view class="cu-form-group">
 		<view class="title">有效期</view>
-		<input value="{{readerinfo.validate}}"></input>
+		<input disabled value="{{readerinfo.validate}}"></input>
 	</view>
 
-  <view class="padding flex flex-direction">
+  <!--<view class="padding flex flex-direction">
         <button class="cu-btn bg-blue lg" bindtap="">完成</button>
   </view>
+  -->
 <!--   <view class="padding flex flex-direction">
         <button class="cu-btn bg-blue lg" bindtap="">删除</button>
   </view> -->

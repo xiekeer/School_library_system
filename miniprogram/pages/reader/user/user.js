@@ -99,17 +99,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取登录id（即借书卡号）
-    let readerid = getApp().globalData.loginid
-    //从数据库获取用户信息保存到readerinfo中
-    readerdb.doc(readerid).get().then(res => {
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }else{
+      //从数据库获取用户信息保存到readerinfo中
+      readerdb.doc(id).get().then(res => {
        this.setData({
-        readerinfo:res.data,
+        readerinfo: res.data,
         birthday: res.data.birthday,
-        
        })
      }
     )
+    }   
   },
 
   /**

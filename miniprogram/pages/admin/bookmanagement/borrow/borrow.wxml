@@ -1,7 +1,7 @@
 <!--pages/admin/bookmanagement/borrow/borrow.wxml-->
 <form bindsubmit="borrowBook">
   <view class="cu-form-group margin-top">
-		<view class="title">图书证号</view>
+		<view class="title">学生证号</view>
 		<input value='{{readerid}}' name='readerid'></input>
     <text class="cuIcon-scan" bindtap='scanCodeReader'></text>
 	</view>

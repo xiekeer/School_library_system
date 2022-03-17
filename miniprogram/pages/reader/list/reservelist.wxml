@@ -3,9 +3,21 @@
     <view class="cu-item" wx:for="{{reservelist}}" wx:key = "item" wx:for-index="index">    
       <view class="text-black text-lg text-bold margin-sm">{{item.title}}</view>    
       <view>   
-      <view class="text-grey">编号：{{item._id}}</view>
+      <view class="text-grey">书籍编号：{{item._id}}</view>
+      <view wx:if="{{item.borrowedby == ''}}" class="text-grey">状态: 可借阅</view>
+      <view wx:else class="text-grey">状态: 排队中</view>
     </view> 
       <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='cancleReserveBook' 
+        data-bookid='{{item._id}}' data-index= '{{index}}' data-bookwaitinglist='{{item.waitinglist}}' >取消</view>      
+    </view>
+
+    <view class="cu-item" wx:for="{{waitinglist}}" wx:key = "item" wx:for-index="index">    
+      <view class="text-black text-lg text-bold margin-sm">{{item.title}}</view>    
+      <view>   
+      <view class="text-grey">书籍编号：{{item._id}}</view>
+      <view class="text-grey">状态: 排队中</view>
+    </view> 
+      <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='cancleWaitinglistBook' 
         data-bookid='{{item._id}}' data-index= '{{index}}'>取消</view>      
     </view>
 </view>

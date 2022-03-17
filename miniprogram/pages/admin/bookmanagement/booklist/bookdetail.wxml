@@ -13,6 +13,10 @@
     <view class="title">ISBN</view>
     <input value ="{{bookinfo.isbn}}"></input>
   </view>
+	<view class="cu-form-group">
+    <view class="title">备注</view>
+    <input value ="{{bookinfo.note}}"></input>
+  </view>
   <view class="cu-form-group">
 		<view class="title">借给</view>
 		<input disabled value="{{bookinfo.borrowedby}}"></input>
@@ -20,6 +24,10 @@
   <view class="cu-form-group">
 		<view class="title">预约给</view>
 		<input disabled value="{{bookinfo.reservedby}}"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">等待列表</view>
+		<input disabled value="{{bookinfo.waitinglist}}"></input>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">出借日期</view>
@@ -32,7 +40,7 @@
 	<view class="cu-form-group">
 		<view class="title">已延期次数</view>
 		<input disabled value="{{bookinfo.renewtime}}"></input>
-	</view>>
+	</view>
 
   <view class="padding flex flex-direction">
         <button class="cu-btn bg-blue lg" bindtap="">更新</button>

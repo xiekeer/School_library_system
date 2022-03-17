@@ -8,7 +8,7 @@ Page({
   data: {
     readerid: "",
     readername: "",
-    studentid: "",
+    // studentid: "",
     birthday: "2021-01-01",
     validate: "2022-01-01",
     password: "123456",
@@ -43,7 +43,7 @@ Page({
 addReader: function(e) {
   //读取表单数据
   let {readerid,readername,studentid,birthday,validate}=e.detail.value
-  if (!readerid||!studentid||!validate){
+  if (!readerid||!validate){
     wx.showToast({
         title: '请完整填写内容',
       })
@@ -55,7 +55,7 @@ addReader: function(e) {
         password:this.data.password,
         name:readername,
         birthday:birthday,
-        studentid:studentid,
+        studentid:readerid,
         validate:validate
       },
       success:res =>{
@@ -79,7 +79,13 @@ addReader: function(e) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }
   },
 
   /**

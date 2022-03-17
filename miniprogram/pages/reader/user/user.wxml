@@ -1,7 +1,7 @@
 <!--pages/reader/user/user.wxml-->
 <form bindsubmit="modifyReader">
   <view class="cu-form-group margin-top">
-		<view class="title">图书证号</view>
+		<view class="title">学生证号</view>
 		<input disabled name="readerid" value="{{readerinfo._id}}" ></input>
 	</view>
 	<view class="cu-form-group">
@@ -22,10 +22,6 @@
 			{{birthday}}
 		</picker>
   </view>
-	<view class="cu-form-group">
-		<view class="title">学号</view>
-		<input name="studentid" value="{{readerinfo.studentid}}"></input>
-	</view>
 
   <view class="cu-form-group">
 		<view class="title">图书证有效期至</view>

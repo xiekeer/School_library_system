@@ -3,7 +3,7 @@
       <!-- 搜索框 -->
       <view class="weui-search-bar__box">
                     <icon class="weui-icon-search_in-box round" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" value="{{searchtext}}" bindinput="searchinput" placeholder="请输入书名，ISBN或图书馆编号"/>
+                    <input type="text" class="search-form_input" value="{{searchtext}}" bindinput="searchinput" placeholder="请输入书名，ISBN或图书馆编号"/>
                 </view>
             </view>
             <!-- 搜索按钮,调用搜索查询方法 -->
@@ -18,13 +18,16 @@
       <view class="content text-grey">
         <view names="bookid">图书编号：{{item._id}}</view>
         <view>ISBN：{{item.isbn}}</view>
+        <view wx:if="{{item.reservedby==''}}">已预约人数：0 </view>
+        <view wx:else >已预约人数：{{item.waitinglist.length+1}}</view>
       </view>
-        <view wx:if="{{item.reservedby==''}}" class="cu-btn bg-blue shadow" style="border-radius: 12rpx;"  bindtap='reserveBook' 
+      <wxs module ="tools" src="../../../module/function.wxs" />
+      <view wx:if="{{item.reservedby==id || tools.arrayfind(item.waitinglist,id)!==-1}}" class="cu-btn bg-grey shadow" style="border-radius: 12rpx;"  >
+          已预约
+      </view>  
+        <view wx:else class="cu-btn bg-blue shadow" style="border-radius: 12rpx;"  bindtap='reserveBook' 
         data-bookid='{{item._id}}' data-index= '{{index}}' >
           预约
-        </view>    
-        <view wx:else class="cu-btn bg-grey shadow" style="border-radius: 12rpx;"  >
-          预约
-        </view>    
+        </view>              
     </view>
 </view>

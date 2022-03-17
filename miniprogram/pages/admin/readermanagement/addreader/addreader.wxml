@@ -1,7 +1,7 @@
 <!--pages/admin/readermanagement/addreader/addreader.wxml-->
 <form bindsubmit="addReader">
   <view class="cu-form-group margin-top">
-		<view class="title">图书证号</view>
+		<view class="title">学生证号</view>
 		<input value='{{readerid}}' name='readerid' placeholder="必填"></input>
     <text class="cuIcon-scan" bindtap='scanCodeReader'></text>
 	</view>
@@ -9,10 +9,10 @@
 		<view class="title">学生姓名</view>
 		<input placeholder="学生姓名" name='readername'></input>
 	</view>
-  <view class="cu-form-group">
+<!--   <view class="cu-form-group">
 		<view class="title">学号</view>
 		<input name='studentid' placeholder="必填"></input>
-	</view>
+	</view> -->
 
 	<view class="cu-form-group">
 		<view class="title">出生日期</view>

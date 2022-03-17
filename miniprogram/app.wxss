@@ -50,9 +50,25 @@
   line-height: 28px;
   font-size: 14px;
 }
+.search-form_input {
+	flex: 1;
+	padding-right: 30rpx;
+	height: 64rpx;
+	line-height: 64rpx;
+	font-size: 26rpx;
+	background-color: transparent;
+}
 .weui-search-bar__cancel-btn {
   margin-left: 10px;
   line-height: 28px;
   color:#0081ff;
   white-space: nowrap;
+}
+
+.none{
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

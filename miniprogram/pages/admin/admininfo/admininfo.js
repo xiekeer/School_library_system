@@ -14,15 +14,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     let adminid = '100001'
-     admindb.doc(adminid).get().then(res => {
-      console.log(res.data)   
-       this.setData({
-         admininfo:res.data
-       })
-       console.log(this.data.admininfo)
-     }
-    )
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }else{
+      admindb.doc(id).get().then(res => {
+        console.log(res.data)   
+        this.setData({
+          admininfo:res.data
+        })
+        console.log(this.data.admininfo)
+      }
+      )
+    }
    
   },
 

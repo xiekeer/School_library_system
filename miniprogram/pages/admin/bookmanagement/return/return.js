@@ -48,6 +48,7 @@ Page({
         })
       return;
     }else{
+      //更新数据库出借记录
       bookdb.doc(bookid).update({
         data: {
           borrowedby:"",
@@ -55,11 +56,19 @@ Page({
           borrowedend:"",
           renewtime:0,
         },
+        //成功，提示框展示
         success: res => {
           wx.showToast({
             title: '书籍归还成功',
           })
+          //清空页面编号输入框
+          setTimeout(() => { 
+            this.setData({
+              'bookid': ''
+              })
+          }, 10)    
         },
+        //失败，提示失败
         fail: err => {
           wx.showToast({
             icon: 'none',
@@ -74,7 +83,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }
   },
 
   /**

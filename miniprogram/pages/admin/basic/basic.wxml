@@ -58,7 +58,7 @@
 </view>
 
 
-<view class="cu-bar bg-white solid-bottom margin-top">
+<!-- <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
       <text class="cuIcon-title text-blue "></text> 规则设置
     </view>
@@ -69,4 +69,4 @@
       </view>
       <text>{{item.name}}</text>
     </view>
-</view>
+</view> -->

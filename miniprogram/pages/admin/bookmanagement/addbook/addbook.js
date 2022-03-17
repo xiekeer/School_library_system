@@ -10,6 +10,7 @@ Page({
     bookid: "",
     bookisbn: "",
     booktitle: "",
+    booknote: ""
   },
 
   //扫描书籍编号
@@ -42,7 +43,7 @@ Page({
   addBook: function(e) {
 
     //读取表单数据
-    let {bookid,bookisbn,booktitle}=e.detail.value
+    let {bookid,bookisbn,booktitle,booknote}=e.detail.value
     //内容输入不全提示
     if (!bookid||!bookisbn||!booktitle){
       wx.showToast({
@@ -55,16 +56,27 @@ Page({
           _id:bookid,
           title:booktitle,
           isbn:bookisbn,
+          note:booknote,
           borrowedby:"",
           reservedby:"",
           borrowedbegin:"",
           borrowedend:"",
           renewtime:0,
+          waitinglist:[],
         },
         success:res =>{
           wx.showToast({
             title: '新增记录成功',
           })
+          /* //清空页面输入框
+          setTimeout(() => { 
+            this.setData({
+              'bookid': '',
+              'bookisbn': '',
+              'booktitle': '',
+              'booknote': '',
+              })
+          }, 15)   */
         },
         fail:err=>{
           wx.showToast({
@@ -80,7 +92,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }
   },
 
   /**

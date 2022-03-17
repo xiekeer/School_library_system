@@ -53,7 +53,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }
   },
 
   /**

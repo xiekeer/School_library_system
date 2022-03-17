@@ -1,11 +1,10 @@
 <!--pages/admin/readermanagement/readerlist/readerlist.wxml-->
-<!--pages/admin/bookmanagement/booklist/booklist.wxml-->
 <view class="weui-search-bar margin-top">
     <view class="weui-search-bar__form">
       <!-- 搜索框 -->
       <view class="weui-search-bar__box">
                     <icon class="weui-icon-search_in-box round" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" value="{{searchtext}}" bindinput="searchinput" placeholder="请输入读者借书证，姓名或学号查询"/>
+                    <input type="text" class="search-form_input" value="{{searchtext}}" bindinput="searchinput" placeholder="请输入读者借书证，姓名或学号查询"/>
                 </view>
             </view>
             <!-- 搜索按钮,调用搜索查询方法 -->
@@ -18,8 +17,7 @@
     <view class="cu-item"  wx:for="{{searcharray}}" wx:key="item">    
       <view class="content text-black text-bold">{{item.name}}</view>        
       <view class="content text-grey">
-        <view>图书证：{{item._id}}</view>
-        <view>学生证：{{item.studentid}}</view>
+        <view>学生证：{{item._id}}</view>
       </view>
       <view class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='showReaderDetail' data-index="{{index}}">详情</view>      
     </view>

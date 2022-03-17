@@ -9,21 +9,32 @@ Page({
    */
   data: {
     borrowlist:null,
-    renewday:40,
+    //续借时间
+    renewday:14,
+    //续借最大次数
+    maxRenewTimes:2,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id= getApp().globalData.loginid
-    bookdb.where({borrowedby:id}).get({
-      success: res =>{
-        this.setData({
-          borrowlist:res.data
-        })
-      }
-    })
+    //如果没有登录转到首页登录
+    let id=getApp().globalData.loginid
+    if (id=='' || id == null){
+      wx.redirectTo({
+        url: '/pages/index/index',
+      })
+    }else{
+      bookdb.where({borrowedby:id}).get({
+        success: res =>{
+          this.setData({
+            borrowlist:res.data
+          })
+        }
+      })
+    }
   },
 
   // 续借书籍功能
@@ -33,8 +44,11 @@ Page({
     let bookid= event.currentTarget.dataset.bookid
     let index = event.currentTarget.dataset.index
     let renewtime = event.currentTarget.dataset.renewtime+1
+    let enddate = that.data.borrowlist[index].borrowedend
+    console.log(enddate)
     // 调用函数时，传入new Date()参数，返回值是日期和时间
-    let date = new Date()
+    let date = new Date(enddate + ' 00:00:00')
+    
     //计算借阅结束时间
     date.setDate(date.getDate() + this.data.renewday);
     let borrowedend = util.formatDate(date)

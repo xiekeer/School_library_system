@@ -6,7 +6,7 @@
         <view class="text-grey">编号：{{item._id}}</view>
         <view class="">到期日期: {{item.borrowedend}} </view>
       </view> 
-      <view wx:if="{{item.renewtime < 3 && item.reservedby == ''}}" class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='renewBook' 
+      <view wx:if="{{item.renewtime < maxRenewTimes && item.reservedby == ''}}" class="cu-btn bg-blue shadow" style="border-radius: 12rpx;" bindtap='renewBook' 
         data-bookid='{{item._id}}' data-renewtime= '{{item.renewtime}}' data-index= '{{index}}' >续借</view>
       <view wx:else class="cu-btn bg-gray shadow" style="border-radius: 12rpx;" >续借</view>      
     </view>

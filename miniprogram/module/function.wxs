@@ -1,0 +1,9 @@
+//查询字符串是否在数组中，如有，返回位置，如无，返回-1
+var arrayfind=function(arr,string){
+  if (arr!== undefined){
+    return arr.indexOf(string)
+  }else{
+    return -1
+  }
+}
+module.exports.arrayfind= arrayfind;

@@ -8,7 +8,7 @@
     <text class="text-red padding-xs">{{warn}}</text>
     <form bindsubmit="login">
       <view class="cu-form-group">
-        <view class="title">借书证ID</view>
+        <view class="title">学生证号</view>
         <input placeholder="" name="id"></input>
       </view>
       <view class="cu-form-group">
